@@ -32,8 +32,9 @@ extern	struct	dentry	devtab[]; /* one entry per device */
 #define GPIO3                4	/* type gpio     */
 #define NULLDEV              5	/* type null     */
 #define NAMESPACE            6	/* type nam      */
-#define SPI1                 7	/* type spi      */
+#define SPI2                 7	/* type spi      */
 #define RAM0                 8	/* type ram      */
+#define TFT0                 9	/* type tft      */
 
 /* Control block sizes */
 
@@ -43,8 +44,9 @@ extern	struct	dentry	devtab[]; /* one entry per device */
 #define	Nram	1
 #define	Nnam	1
 #define	Nspi	1
+#define	Ntft	1
 
-#define NDEVS 9
+#define NDEVS 10
 
 
 /* Configuration and Size Constants */

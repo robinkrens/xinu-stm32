@@ -1,3 +1,10 @@
+/**
+ * File              : prototypes.h
+ * Author            : Robin Krens <robin@robinkrens.nl>
+ * Date              : 15.11.2019
+ * Last Modified Date: 15.11.2019
+ * Last Modified By  : Robin Krens <robin@robinkrens.nl>
+ */
 /* in file addargs.c */
 extern	status	addargs(pid32, int32, int32[], int32,char *, void *);
 
@@ -622,6 +629,9 @@ extern	devcall	spiinit(struct dentry *);
 
 /* in file spiputc.c */
 extern	devcall	spiputc(struct dentry *, char);
+
+extern devcall tftinit(struct dentry *);
+extern int tftcommand(uint8 cmd, int argsc, ...);
 
 
 /* NETWORK BYTE ORDER CONVERSION NOT NEEDED ON A BIG-ENDIAN COMPUTER */

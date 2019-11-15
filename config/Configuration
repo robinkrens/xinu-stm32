@@ -62,6 +62,13 @@ spi:
 		-r ioerr 	-g ioerr 	-p spiputc
 		-w ioerr 	-s ioerr 	-n ioerr
 		-intr ioerr
+
+tft:
+	on spi
+		-i tftinit 	-o ioerr 	-c ioerr
+		-r ioerr 	-g ioerr 	-p ioerr
+		-w ioerr 	-s ioerr 	-n ioerr
+		-intr ioerr
 	
 %%
 
@@ -87,10 +94,13 @@ spi:
    NAMESPACE is nam on top
 
    /* Define a SPI device */
-   SPI1	is spi on standard_spi
+   SPI2	is spi on standard_spi
 
    /* Define a ram disk device */
    RAM0 is ram on mem
+
+   /* Define a TFT device */
+   TFT0 is tft on spi
 
 %%
 

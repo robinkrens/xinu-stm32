@@ -1,3 +1,10 @@
+/**
+ * File              : spiinit.c
+ * Author            : Robin Krens <robin@robinkrens.nl>
+ * Date              : 16.11.2019
+ * Last Modified Date: 16.11.2019
+ * Last Modified By  : Robin Krens <robin@robinkrens.nl>
+ */
 #include <xinu.h>
 
 int32	spiinit (
@@ -11,11 +18,11 @@ int32	spiinit (
 
 	/* Enable SPI clock */
 	cptr = (struct clock_csreg *)CLOCK_BASE;
-	cptr->apb2enr |= (1 << SPI1EN);
+	cptr->apb1enr |= (1 << SPI2EN);
 	
 	/* Configure SPI peripheral */
 	if(devptr->dvminor == 0) {
-		spiptr = (struct spi_csreg *)SPI1_BASE;
+		spiptr = (struct spi_csreg *)SPI2_BASE;
 	}
 	else {
 		kprintf("SPI device not recognized\n");

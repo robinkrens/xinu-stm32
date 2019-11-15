@@ -1,3 +1,10 @@
+/**
+ * File              : spi.h
+ * Author            : Robin Krens <robin@robinkrens.nl>
+ * Date              : 16.11.2019
+ * Last Modified Date: 16.11.2019
+ * Last Modified By  : Robin Krens <robin@robinkrens.nl>
+ */
 /* spi.h - SPI definitions */
 
 struct	spi_csreg {
@@ -14,6 +21,7 @@ struct	spi_csreg {
 
 /* No SPI0 peripheral, starts from 1*/
 #define	SPI1_BASE	0x40013000
+#define SPI2_BASE	0x40003800
 
 /* Control register settings */
 #define SPI_MSTR	2

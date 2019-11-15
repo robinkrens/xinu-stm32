@@ -1,3 +1,10 @@
+/**
+ * File              : clk.h
+ * Author            : Robin Krens <robin@robinkrens.nl>
+ * Date              : 16.11.2019
+ * Last Modified Date: 16.11.2019
+ * Last Modified By  : Robin Krens <robin@robinkrens.nl>
+ */
 /* Xinu for STM32
  *
  * Original license applies
@@ -61,6 +68,8 @@
 #define	TIM4EN		2
 #define	TIM5EN		3
 #define	TIM6EN		4
+#define SPI2EN		14		
+#define SPI3EN		15
 
 //int clockinit(struct dentry * devptr);
 //int clockcontrol(struct dentry * devptr, int32_t func, int32_t, int32_t);

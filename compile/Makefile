@@ -36,8 +36,9 @@ REBUILDFLAGS	=	-s $(TOPDIR)/system  debug.c 	\
 			-s $(TOPDIR)/device/tty			\
 			-s $(TOPDIR)/device/nam			\
 			-s $(TOPDIR)/device/ram			\
-			-s $(TOPDIR)/device/gpio			\
+			-s $(TOPDIR)/device/gpio		\
 			-s $(TOPDIR)/device/spi			\
+			-s $(TOPDIR)/device/tft			\
 			-s $(TOPDIR)/shell  'xsh_rdstest*'
 
 INCLUDE		=	-I$(TOPDIR)/include

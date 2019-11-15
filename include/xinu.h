@@ -1,5 +1,13 @@
+/**
+ * File              : xinu.h
+ * Author            : Robin Krens <robin@robinkrens.nl>
+ * Date              : 15.11.2019
+ * Last Modified Date: 15.11.2019
+ * Last Modified By  : Robin Krens <robin@robinkrens.nl>
+ */
 /* xinu.h - include all system header files */
 
+#include <stdarg.h>
 #include <kernel.h>
 #include <cortexm3.h> 	/* Cortex M3 Processor */
 #include <conf.h>
@@ -40,3 +48,4 @@
 #include <stdio.h>
 #include <string.h>
 #include <syscall.h>
+#include <tft.h>

@@ -68,8 +68,8 @@ struct	dentry	devtab[NDEVS] =
 	  (void *)ioerr, (void *)ioerr, (void *)ioerr,
 	  (void *)0x0, (void *)ioerr, 0 },
 
-/* SPI1 is spi */
-	{ 7, 0, "SPI1",
+/* SPI2 is spi */
+	{ 7, 0, "SPI2",
 	  (void *)spiinit, (void *)ioerr, (void *)ioerr,
 	  (void *)ioerr, (void *)ioerr, (void *)ioerr,
 	  (void *)ioerr, (void *)spiputc, (void *)ioerr,
@@ -80,5 +80,12 @@ struct	dentry	devtab[NDEVS] =
 	  (void *)raminit, (void *)ramopen, (void *)ramclose,
 	  (void *)ramread, (void *)ramwrite, (void *)ioerr,
 	  (void *)ioerr, (void *)ioerr, (void *)ioerr,
-	  (void *)0x0, (void *)ionull, 0 }
+	  (void *)0x0, (void *)ionull, 0 },
+
+/* TFT0 is tft */
+	{ 9, 0, "TFT0",
+	  (void *)tftinit, (void *)ioerr, (void *)ioerr,
+	  (void *)ioerr, (void *)ioerr, (void *)ioerr,
+	  (void *)ioerr, (void *)ioerr, (void *)ioerr,
+	  (void *)0x0, (void *)ioerr, 0 }
 };
