@@ -11,14 +11,13 @@
 struct tftcblk tftcontrol;
 
 /* Block in us*/
-void _block(uint32 us) {
+void block(uint32 us) {
  
          uint32 count = (us/3) * CLKSPEED_MHZ; // x cycles 
-         while (count > 0) {
-		 count--;
-	 }
-	 //asm volatile("b1: subs %0, %1, #1" "\n\t"
-         //        "bne b1" : "=r" (count) : "r" (count));
+	 asm volatile(
+		"b1: subs %0, %1, #1" "\n\t"
+                "bne b1" : "=r" (count) : "r" (count)
+		);
  
 }
  
@@ -46,9 +45,9 @@ int32	tftinit (struct	dentry *devptr)
 	 * Sequence that cannot be interrupted 
 	 * or otherwise init fails */
 	tftcommand(TFT_SWRESET, 0);
-	_block(120000);
+	block(120000);
 	tftcommand(0x11, 0);
-	_block(120000);
+	block(120000);
 
 	/* Frame rate control */
 	tftcommand(TFT_FRMCTR1, 3, 0x01, 0x2C, 0x2D);
@@ -82,13 +81,17 @@ int32	tftinit (struct	dentry *devptr)
 
 	/* Before turning on the display, fill the display
 	 * so no random display data is shown */
-	//tft_fill(0,0,SCRWIDTH-1,SCRHEIGHT-1,0x0000);
+	tft_fill(0,0,SCRWIDTH-1,SCRHEIGHT-1,0x0000);
 
 	/* Turn on */
 	tftcommand(TFT_NORON, 0);
-	_block(10000);
+	block(10000);
 	tftcommand(TFT_DISPON, 0);
-	_block(100000);
+	block(100000);
+
+	/* Close GPIO devices */
+//	gpiobptr->dvclose(gpiobptr);
+//	gpiocptr->dvclose(gpiocptr);
 
 	return OK;
 }

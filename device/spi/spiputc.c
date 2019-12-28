@@ -7,7 +7,7 @@
  */
 #include <xinu.h>
 
-int32	spiputc (struct dentry *devptr, char c)
+int32	spiputc (struct dentry *devptr, uint8 c)
 {
 	struct spi_csreg *spiptr;	/* SPI control and status regs	*/
 	int cnt = 0;

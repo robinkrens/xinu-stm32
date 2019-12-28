@@ -1,3 +1,10 @@
+/**
+ * File              : gpiowrite.c
+ * Author            : Robin Krens <robin@robinkrens.nl>
+ * Date              : 16.11.2019
+ * Last Modified Date: 16.11.2019
+ * Last Modified By  : Robin Krens <robin@robinkrens.nl>
+ */
 /* gpiowrite.c - gpiowrite */
 
 #include <xinu.h>
@@ -16,15 +23,13 @@ devcall	gpiowrite(
 	uint8 val;
 	
 	csrptr = (struct gpio_csreg *)(devptr->dvcsr);
-	val = (uint8)value;
+	val = (uint8) value;
 
 	if (val == 0) {
 		csrptr->odr &= ~(1 << pin);
-		return 0;
 	}
 	else  if (val == 1) {
 		csrptr->odr |= (1 << pin);
-		return 0;
 	}
 	
 	return OK;

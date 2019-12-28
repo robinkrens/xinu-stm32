@@ -1,3 +1,10 @@
+/**
+ * File              : shprototypes.h
+ * Author            : Robin Krens <robin@robinkrens.nl>
+ * Date              : 16.11.2019
+ * Last Modified Date: 16.11.2019
+ * Last Modified By  : Robin Krens <robin@robinkrens.nl>
+ */
 /* in file xsh_argecho.c */
 extern	shellcmd  xsh_argecho	(int32, char *[]);
 
@@ -72,3 +79,9 @@ extern	shellcmd  xsh_uptime	(int32, char *[]);
 
 /* in file xsh_help.c */
 extern	shellcmd  xsh_help	(int32, char *[]);
+
+/* in file xsh_move.c */
+extern	shellcmd  xsh_move	(int32, char *[]);
+
+
+

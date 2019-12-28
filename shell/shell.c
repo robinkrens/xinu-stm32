@@ -1,3 +1,10 @@
+/**
+ * File              : shell.c
+ * Author            : Robin Krens <robin@robinkrens.nl>
+ * Date              : 16.11.2019
+ * Last Modified Date: 16.11.2019
+ * Last Modified By  : Robin Krens <robin@robinkrens.nl>
+ */
 /* shell.c  -  shell */
 
 #include <xinu.h>
@@ -19,6 +26,7 @@ const	struct	cmdent	cmdtab[] = {
 	{"kill",	TRUE,	xsh_kill},
 	{"memdump",	FALSE,	xsh_memdump},
 	{"memstat",	TRUE,	xsh_memstat}, /* Make built-in */
+	{"move",	FALSE, 	xsh_move},
 	{"ps",		FALSE,	xsh_ps},
 	{"sleep",	FALSE,	xsh_sleep},
 	{"uptime",	FALSE,	xsh_uptime},

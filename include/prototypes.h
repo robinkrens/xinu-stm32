@@ -2,7 +2,7 @@
  * File              : prototypes.h
  * Author            : Robin Krens <robin@robinkrens.nl>
  * Date              : 15.11.2019
- * Last Modified Date: 15.11.2019
+ * Last Modified Date: 16.11.2019
  * Last Modified By  : Robin Krens <robin@robinkrens.nl>
  */
 /* in file addargs.c */
@@ -132,6 +132,9 @@ extern	void	gpiohandler(uint32);
 
 /* in file gpioinit.c */
 extern	devcall	gpioinit(struct dentry *);
+
+/* in file gpioclose.c */
+extern	devcall	gpioclose(struct dentry *);
 
 /* in file gpioselect.c */
 extern devcall gpioselect(uint32, uint32, uint32);
@@ -628,11 +631,13 @@ extern void syscall_init();
 extern	devcall	spiinit(struct dentry *);
 
 /* in file spiputc.c */
-extern	devcall	spiputc(struct dentry *, char);
+extern	devcall	spiputc(struct dentry *, uint8);
 
+/* in tft device */
 extern devcall tftinit(struct dentry *);
 extern int tftcommand(uint8 cmd, int argsc, ...);
-
+extern int tft_fill(uint8 x, uint8 beginy, uint8 endx,uint8 endy, uint16 color);
+extern int tftwrite(struct dentry *, void *, uint32);
 
 /* NETWORK BYTE ORDER CONVERSION NOT NEEDED ON A BIG-ENDIAN COMPUTER */
 #define	htons(x)   ( ( 0xff & ((x)>>8) ) | ( (0xff & (x)) << 8 ) )

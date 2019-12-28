@@ -1,3 +1,10 @@
+/**
+ * File              : clkinit.c
+ * Author            : Robin Krens <robin@robinkrens.nl>
+ * Date              : 16.11.2019
+ * Last Modified Date: 17.11.2019
+ * Last Modified By  : Robin Krens <robin@robinkrens.nl>
+ */
 /* Xinu for STM32
  *
  * Original license applies

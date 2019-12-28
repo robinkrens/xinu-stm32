@@ -1,3 +1,10 @@
+/**
+ * File              : initialize.c
+ * Author            : Robin Krens <robin@robinkrens.nl>
+ * Date              : 16.11.2019
+ * Last Modified Date: 17.11.2019
+ * Last Modified By  : Robin Krens <robin@robinkrens.nl>
+ */
 /* Xinu for STM32
  *
  * Original license applies
@@ -18,6 +25,7 @@
 
 #include <xinu.h>
 #include <string.h>
+
 
 extern	void	start(void);	/* Start of Xinu code			*/
 extern	void	*_end;		/* End of Xinu code			*/
@@ -103,7 +111,7 @@ void	nulluser()
 	int pid = create((void *)nullprocess, INITSTK, 10, "Null process", 0, NULL);
 	struct procent * prptr = &proctab[pid];
 	prptr->prstate = PR_CURR;
-	
+
 	/* Enable interrupts */
 	enable();
 	

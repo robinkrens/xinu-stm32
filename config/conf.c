@@ -28,28 +28,28 @@ struct	dentry	devtab[NDEVS] =
 
 /* GPIO0 is gpio */
 	{ 1, 0, "GPIO0",
-	  (void *)gpioinit, (void *)ionull, (void *)ionull,
+	  (void *)gpioinit, (void *)ionull, (void *)gpioclose,
 	  (void *)gpioread, (void *)gpiowrite, (void *)ioerr,
 	  (void *)ionull, (void *)ionull, (void *)gpiocontrol,
 	  (void *)0x40010800, (void *)gpiohandler, 99 },
 
 /* GPIO1 is gpio */
 	{ 2, 1, "GPIO1",
-	  (void *)gpioinit, (void *)ionull, (void *)ionull,
+	  (void *)gpioinit, (void *)ionull, (void *)gpioclose,
 	  (void *)gpioread, (void *)gpiowrite, (void *)ioerr,
 	  (void *)ionull, (void *)ionull, (void *)gpiocontrol,
 	  (void *)0x40010c00, (void *)gpiohandler, 99 },
 
 /* GPIO2 is gpio */
 	{ 3, 2, "GPIO2",
-	  (void *)gpioinit, (void *)ionull, (void *)ionull,
+	  (void *)gpioinit, (void *)ionull, (void *)gpioclose,
 	  (void *)gpioread, (void *)gpiowrite, (void *)ioerr,
 	  (void *)ionull, (void *)ionull, (void *)gpiocontrol,
 	  (void *)0x40011000, (void *)gpiohandler, 99 },
 
 /* GPIO3 is gpio */
 	{ 4, 3, "GPIO3",
-	  (void *)gpioinit, (void *)ionull, (void *)ionull,
+	  (void *)gpioinit, (void *)ionull, (void *)gpioclose,
 	  (void *)gpioread, (void *)gpiowrite, (void *)ioerr,
 	  (void *)ionull, (void *)ionull, (void *)gpiocontrol,
 	  (void *)0x40011400, (void *)gpiohandler, 99 },
@@ -85,7 +85,7 @@ struct	dentry	devtab[NDEVS] =
 /* TFT0 is tft */
 	{ 9, 0, "TFT0",
 	  (void *)tftinit, (void *)ioerr, (void *)ioerr,
-	  (void *)ioerr, (void *)ioerr, (void *)ioerr,
+	  (void *)ioerr, (void *)tftwrite, (void *)ioerr,
 	  (void *)ioerr, (void *)ioerr, (void *)ioerr,
 	  (void *)0x0, (void *)ioerr, 0 }
 };

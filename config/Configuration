@@ -27,7 +27,7 @@ null:
 /* type of a gpio device */
 gpio:
 	on standard_gpio
-		-i gpioinit      -o ionull       -c ionull
+		-i gpioinit      -o ionull       -c gpioclose
 		-r gpioread      -g ionull       -p ionull
 		-w gpiowrite     -s ioerr        -n gpiocontrol
 		-intr gpiohandler
@@ -67,7 +67,7 @@ tft:
 	on spi
 		-i tftinit 	-o ioerr 	-c ioerr
 		-r ioerr 	-g ioerr 	-p ioerr
-		-w ioerr 	-s ioerr 	-n ioerr
+		-w tftwrite 	-s ioerr 	-n ioerr
 		-intr ioerr
 	
 %%

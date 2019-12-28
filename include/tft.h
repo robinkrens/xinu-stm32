@@ -2,7 +2,7 @@
  * File              : tft.h
  * Author            : Robin Krens <robin@robinkrens.nl>
  * Date              : 15.11.2019
- * Last Modified Date: 15.11.2019
+ * Last Modified Date: 16.11.2019
  * Last Modified By  : Robin Krens <robin@robinkrens.nl>
  */
 #define TFT_TIMEOUT 500
@@ -18,6 +18,15 @@ struct tftcblk {
 	int32 tftnum;
 	struct dentry * spiptr;
 	struct dentry * gpioptr;
+};
+
+struct tftshape {
+	uint8 shape;
+	uint8 beginx;
+	uint8 beginy;
+	uint8 endy;
+	uint8 endx;
+	uint16 color;
 };
 
 struct tftscreen {

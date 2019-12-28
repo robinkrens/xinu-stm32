@@ -45,7 +45,7 @@ INCLUDE		=	-I$(TOPDIR)/include
 DEFS		= 	-DBSDURG -DVERSION=\""`cat $(VERSIONFILE)`"\"
 
 # Compiler flags
-CFLAGS  = -mcpu=cortex-m3 -mno-unaligned-access -mthumb -fno-builtin -fno-stack-protector -nostdlib -c -Wall -O ${DEFS} ${INCLUDE}
+CFLAGS  = -mcpu=cortex-m3 -mno-unaligned-access -mthumb -fno-builtin -fno-stack-protector -nostdlib -c -Wall ${DEFS} ${INCLUDE}
 SFLAGS  = ${INCLUDE}
 
 # Loader flags

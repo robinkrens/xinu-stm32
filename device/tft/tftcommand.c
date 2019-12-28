@@ -9,21 +9,6 @@
 
 extern struct tftcblk tftcontrol;
 
-//static int txbuf_empty (struct spi_csreg * reg) {
-//	
-//	int cnt = 0;
-//        //while(!rchkbit(SPI2_SR, 1)) {
-//	while (!((reg->sr >> SPI_TXE) & 0x1)) {
-//                cnt++;
-//                if (cnt > TFT_TIMEOUT) {
-//                        kprintf("Error: transmit timeout!\n");
-//                        return 0;
-//                }
-//        }
-//        return 1;
-//
-//}
-
 int tftcommand(uint8 cmd, int argsc, ...) {
 
 	va_list ap;
@@ -34,7 +19,7 @@ int tftcommand(uint8 cmd, int argsc, ...) {
 	// command
 	gptr->dvwrite(gptr, 0x0, PIN6); // line low
 	if (sptr->dvputc(sptr, cmd) == SYSERR)
-		return -1;
+		return SYSERR;
 
 	// parameter or data
 	if (argsc > 0) {
@@ -43,11 +28,10 @@ int tftcommand(uint8 cmd, int argsc, ...) {
 		for (int i = 0; i < argsc; i++) {
 			uint8 p = (uint8) va_arg(ap, unsigned int);
 			if (sptr->dvputc(sptr, p) == SYSERR)
-				return -1;
-			//if (!txbuf_empty((struct spi_csreg *) sptr->dvcsr))
+				return SYSERR;
 		}
 		va_end(ap);
 	}
-	return 0;
+	return OK;
 }
 
